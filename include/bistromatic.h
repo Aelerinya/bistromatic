@@ -13,6 +13,3 @@ char const *ERROR_MSG = "error";
 
 char *eval_expr(char const *base, char const *ops,
 char const *expr, unsigned int size);
-
-char base_to_number(char digit, char *base);
-char number_to_base(char nbr, char *base);
