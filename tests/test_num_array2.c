@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include "prototypes.h"
 
-Test(number_str_to_array, normal)
+Test(remove_trailing_zeros, normal)
 {
     char theory[3] = {1, 1, -128};
     char long_array[6] = {1, 1, 0, 0, 0, -128};
@@ -19,7 +19,7 @@ Test(number_str_to_array, normal)
         cr_assert_eq(theory[i], long_array[i]);
 }
 
-Test(number_str_to_array, no_trailing_zeros)
+Test(remove_trailing_zeros, no_trailing_zeros)
 {
     char theory[3] = {1, 1, -128};
     char long_array[3] = {1, 1, -128};
