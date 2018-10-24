@@ -53,3 +53,11 @@ int my_strlen_nbr(char *str, char *base)
     for (size = 0; base_to_number(str[size], base) != -1; size++);
     return size;
 }
+
+int na_size(char *num_array)
+{
+    int i;
+
+    for (i = 0; num_array[i] != -128; i++);
+    return i;
+}

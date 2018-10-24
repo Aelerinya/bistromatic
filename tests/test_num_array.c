@@ -48,3 +48,12 @@ Test(my_strlen_nbr, normal)
     cr_assert_eq(my_strlen_nbr("2120200212132120", "012"), 11);
     cr_assert_eq(my_strlen_nbr("2120200212132120", "abc"), 0);
 }
+
+Test(na_size, normal)
+{
+    char array1[8] = {10, 0, 7, 15, 14, 1, 11, -128};
+    char array2[1] = {-128};
+
+    cr_assert_eq(na_size(array1), 7);
+    cr_assert_eq(na_size(array2), 0);
+}
