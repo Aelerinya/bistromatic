@@ -54,6 +54,5 @@ int my_put_nbr(int nb)
         }
         int_print(nb);
     }
-    my_putchar('\n');
     return (0);
 }
