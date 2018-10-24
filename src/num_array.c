@@ -61,3 +61,13 @@ int na_size(char *num_array)
     for (i = 0; num_array[i] != -128; i++);
     return i;
 }
+
+void remove_trailing_zeros(char *nbr_array)
+{
+    int last = 0;
+
+    for (int i = 0; nbr_array[i] != -128; i++)
+        if (nbr_array[i] != 0)
+            last = i;
+    nbr_array[last + 1] = -128;
+}
