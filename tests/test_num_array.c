@@ -19,7 +19,7 @@ void redirect_all_std(void)
 Test(number_str_to_array, normal)
 {
     char theory[8] = {10, 0, 7, 15, 14, 1, 11, -128};
-    char *result = number_str_to_array("B1EF70A", "0123456789ABCDEF");
+    char *result = number_str_to_array("--+B1EF70A", "0123456789ABCDEF");
 
     for (int i = 0; i < 8; i++)
         cr_assert_eq(theory[i], result[i]);
@@ -34,19 +34,22 @@ Test(number_str_to_array, empty)
         cr_assert_eq(theory[i], result[i]);
 }
 
-Test(print_number_array, normal, .init = redirect_all_std)
+Test(print_number_array, negative, .init = redirect_all_std)
 {
-    char array[8] = {10, 0, 7, 15, 14, 1, 11, -128};
+    char array[9] = {0, -10, 0, -7, -15, -14, -1, -11, -128};
 
     print_number_array(array, "0123456789ABCDEF");
     fflush(stdout);
-    cr_assert_stdout_eq_str("B1EF70A\n");
+    cr_assert_stdout_eq_str("-B1EF70A0\n");
 }
 
-Test(my_strlen_nbr, normal)
+Test(print_number_array, positive, .init = redirect_all_std)
 {
-    cr_assert_eq(my_strlen_nbr("2120200212132120", "012"), 11);
-    cr_assert_eq(my_strlen_nbr("2120200212132120", "abc"), 0);
+    char array[9] = {0, 10, 0, 7, 15, 14, 1, 11, -128};
+
+    print_number_array(array, "0123456789ABCDEF");
+    fflush(stdout);
+    cr_assert_stdout_eq_str("B1EF70A0\n");
 }
 
 Test(na_size, normal)

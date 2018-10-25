@@ -6,7 +6,7 @@
 */
 
 #include <criterion/criterion.h>
-#include <bistromatic.h>
+#include "prototypes.h"
 
 Test(base_to_number, valid)
 {
