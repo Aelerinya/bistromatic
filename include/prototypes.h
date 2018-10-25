@@ -14,5 +14,6 @@ char *number_str_to_array(char *str, char *base);
 void print_number_array(char *nbr_array, char *base);
 int my_strlen_nbr(char *str, char *base);
 int na_size(char *num_array);
-char *infin_add(char *str1, char *str2, char *base);
 void remove_trailing_zeros(char *nbr_array);
+char *infin_add(char *nb1, char *nb2, char *base);
+char *infin_mul(char *nb1, char *nb2, char *base);
