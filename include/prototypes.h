@@ -8,10 +8,13 @@
 #define MAX(v1, v2) (((v1) > (v2)) ? (v1) : (v2))
 #define ABS(v) (((v) > 0) ? (v) : -1 * (v))
 
+enum {OP_OPENP, OP_CLOSEP, OP_ADD, OP_SUB,
+OP_MUL, OP_DIV, OP_MOD};
+
 char base_to_number(char digit, char *base);
 char number_to_base(char nbr, char *base);
-char *number_str_to_array(char *str, char *base);
-void print_number_array(char *nbr_array, char *base);
+char *number_str_to_array(char *str, char *base, char *op);
+void print_number_array(char *nbr_array, char *base, char *op);
 int my_strlen_nbr(char *str, char *base);
 int na_size(char *num_array);
 void remove_trailing_zeros(char *nbr_array);
@@ -20,7 +23,11 @@ char *infin_mul(char *nb1, char *nb2, char *base);
 int infin_compare(char *nb1, char *nb2);
 char *infin_sub(char *nb1, char *nb2, char *base);
 char *infin_div(char *nb1, char *nb2, char *base);
+char *infin_mod(char *nb1, char *nb2, char *base);
 void reverse_number_array(char *nbr_array);
 char remove_negatives(char *nb);
 int find_starting_index(char *nb1, char *nb2);
 void divide_pos(char *result, char *nb1, char *nb2, char *base);
+char *my_strtol(char **str, char *base, char *op);
+char *summands(char **str, char *base, char *op);
+char *parenthesis(char **str, char *base, char *op);
