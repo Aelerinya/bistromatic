@@ -18,3 +18,4 @@ void remove_trailing_zeros(char *nbr_array);
 char *infin_add(char *nb1, char *nb2, char *base);
 char *infin_mul(char *nb1, char *nb2, char *base);
 int infin_compare(char *nb1, char *nb2);
+char *infin_sub(char *nb1, char *nb2, char *base);
