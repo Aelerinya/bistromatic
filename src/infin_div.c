@@ -19,11 +19,13 @@ char *infin_div(char *nb1, char *nb2, char *base)
 
     if (!(result = malloc(sizeof(char) * size)))
         exit(84);
+    for (int i = 0; i < size; i++)
+        result[i] = 0;
     for (int j = start; j >= 0; j--) {
         divide_pos(result + start - j, nb1 + j, nb2, base);
         remove_trailing_zeros(nb1);
     }
-    result[size] = -128;
+    result[size - 1] = -128;
     for (int k = 0; result[k] != -128; k++)
         result[k] *= neg1 * neg2;
     for (int l = 0; nb1[l] != -128 && neg1 == -1; l++)
