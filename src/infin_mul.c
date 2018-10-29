@@ -33,7 +33,8 @@ char *infin_mul(char *nb1, char *nb2, char *base)
     int size = na_size(nb1) + na_size(nb2);
     char *result;
 
-    result = malloc(sizeof(char) * (size + 4));
+    if (!(result = malloc(sizeof(char) * (size + 4))))
+        exit(84);
     for (int i = 0; i < size + 4; i++)
         result[i] = 0;
     for (int j = 0; nb1[j] != -128; j++) {

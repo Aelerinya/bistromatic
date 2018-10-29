@@ -19,7 +19,8 @@ char *infin_add(char *nb1, char *nb2, char *base)
     char *result;
     op_t op = {nb1, nb2, 0, my_strlen(base)};
 
-    result = malloc(sizeof(char) * (MAX(na_size(nb1), na_size(nb2)) + 2));
+    if (!(result = malloc(sizeof(char) * (MAX(na_size(nb1), na_size(nb2)) + 2))))
+        exit(84);
     rec_add(result, &op);
     remove_trailing_zeros(result);
     manage_carry(result, my_strlen(base));
