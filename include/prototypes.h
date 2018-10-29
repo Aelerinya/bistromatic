@@ -19,3 +19,8 @@ char *infin_add(char *nb1, char *nb2, char *base);
 char *infin_mul(char *nb1, char *nb2, char *base);
 int infin_compare(char *nb1, char *nb2);
 char *infin_sub(char *nb1, char *nb2, char *base);
+char *infin_div(char *nb1, char *nb2, char *base);
+void reverse_number_array(char *nbr_array);
+char remove_negatives(char *nb);
+int find_starting_index(char *nb1, char *nb2);
+void divide_pos(char *result, char *nb1, char *nb2, char *base);
