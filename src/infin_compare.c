@@ -26,9 +26,9 @@ int infin_compare(char *nb1, char *nb2)
     if (neg1 != neg2)
         return (neg1);
     if (size1 > size2)
-        return (1);
+        return (neg1);
     else if (size1 < size2)
-        return (-1);
+        return (neg1 * -1);
     for (int i = size1 - 1; i >= 0; i--) {
         if (nb1[i] > nb2[i])
             return (1);
