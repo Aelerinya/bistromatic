@@ -19,7 +19,8 @@ char *number_str_to_array(char *str, char *base)
         if (*str == '-')
             neg *= -1;
     size = my_strlen_nbr(str, base);
-    nbr_array = malloc(sizeof(char) * (size + 2));
+    if(!(nbr_array = malloc(sizeof(char) * (size + 2))))
+        exit(84);
     for (int i = 0; i < size; i++) {
         nbr_array[size - i - 1] = neg * base_to_number(str[i], base);
     }
