@@ -9,7 +9,7 @@
 
 static int verify_sign(char *nb)
 {
-    int neg;
+    int neg = 1;
     
     for (int j = 0; nb[j] != -128; j++)
         neg = (nb[j] < 0) ? -1 : 1;
