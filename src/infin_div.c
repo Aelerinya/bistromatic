@@ -57,7 +57,7 @@ int find_starting_index(char *nb1, char *nb2)
 
     if (nb2[0] == 0 && nb2[1] == -128)
         exit(84);
-    if (!(copy = malloc(sizeof(char) * (na_size(nb1) + 1))))
+    if (!(copy = malloc(sizeof(char) * (MAX(na_size(nb1), na_size(nb2)) + 1))))
         exit(84);
     for (int i = 0; i <= na_size(nb2); i++)
         copy[i] = nb2[i];
