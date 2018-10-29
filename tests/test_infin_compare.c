@@ -40,3 +40,25 @@ Test(infin_compare, nb1_2_even)
     for (int i = 0; theory[i] != -128; i++)
 	cr_assert_eq(result, theory[i]);
 }
+
+Test(infin_compare, nb1_longer)
+{
+	char nb1[6] = {5, 4, 6, 3, 5, -128};
+	char nb2[2] = {1, -128};
+	char theory[2] = {1, -128};
+	int result = infin_compare(nb1, nb2);
+
+	for (int i = 0; theory[i] != -128; i++)
+		cr_assert_eq(result, theory[i]);
+}
+
+Test(infin_compare, nb2_longer)
+{
+	char nb1[2] = {-17, -128};
+	char nb2[6] = {7, 5, 8, 4, 6, -128};
+	char theory[2] = {-1, -128};
+	int result = infin_compare(nb1, nb2);
+
+	for (int i = 0; theory[i] != -128; i++)
+		cr_assert_eq(result, theory[i]);
+}
