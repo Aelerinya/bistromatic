@@ -37,3 +37,7 @@ char *parenthesis(char **str, char *base, char *op);
 char *factors(char **str, char *fac, char *base, char *op);
 char *eval_expr(char *str, char *base, char *op);
 void disp_usage(void);
+void check_parenthesis(char *str, char *operators);
+void check_ops(char *ops);
+void check_base(char *b, char *ops);
+
