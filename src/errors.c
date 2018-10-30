@@ -78,3 +78,21 @@ void check_base(char *b, char *ops)
         j = 0;
     }
 }
+
+void check_duplicate(char *b)
+{
+    int i = 0;
+    int j = 1;
+
+    while (b[i]) {
+        while (b[j]) {
+            if (b[i] == b[j]) {
+                write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
+                exit(84);
+            }
+            j = j + 1;
+        }
+        i = i + 1;
+        j = i + 1;
+    }
+}
