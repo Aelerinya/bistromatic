@@ -35,7 +35,7 @@ Test(print_number_array, negative, .init = redirect_all_std)
 
     print_number_array(array, "0123456789ABCDEF", "()+-*/%");
     fflush(stdout);
-    cr_assert_stdout_eq_str("-B1EF70A0\n", "()+-*/%");
+    cr_assert_stdout_eq_str("-B1EF70A0\n");
 }
 
 Test(print_number_array, positive, .init = redirect_all_std)
