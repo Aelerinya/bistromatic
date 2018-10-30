@@ -6,18 +6,17 @@
 */
 
 #include <stdlib.h>
+#include "prototypes.h"
 
 void check_parenthesis(char *str, char *operators)
 {
-    int i = 0;
     int p = 0;
 
-    while (str[i]) {
-        if (str[i] == operators[0])
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == operators[OP_OPENP])
             p++;
-        if (str[i] == operators[0])
+        if (str[i] == operators[OP_CLOSEP])
             p--;
-        i++;
     }
     if (p != 0)
         exit(84);
