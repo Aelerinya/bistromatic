@@ -29,19 +29,23 @@ void check_parenthesis(char *str, char *operators)
         if (str[i] == operators[OP_CLOSEP])
             p--;
     }
-    if (p != 0)
+    if (p != 0) {
+        my_putstr(SYNTAX_ERROR_MSG);
         exit(84);
+    }
 }
 
 void check_ops(char *ops)
 {
     int i = 0;
-    int j = 0;
+    int j = 1;
 
     while (ops[i]) {
         while (ops[j]) {
-            if (ops[i] == ops[j])
+            if (ops[i] == ops[j]) {
+                my_putstr(SYNTAX_ERROR_MSG);
                 exit(84);
+            }
             j = j + 1;
         }
         i = i + 1;
@@ -63,9 +67,11 @@ void check_base(char *b, char *ops)
         exit(84);
     }
     while (b[i]) {
-        while (b[j]) {
-        if (b[i] = ops[j])
+        while (ops[j]) {
+        if (b[i] == ops[j]) {
+            my_putstr(SYNTAX_ERROR_MSG);
             exit(84);
+        }
         j = j + 1;
         }
     i = i + 1;

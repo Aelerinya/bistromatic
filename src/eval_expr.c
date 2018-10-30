@@ -21,6 +21,7 @@ char *my_strtol(char **str, char *base, char *op)
             neg *= -1;
     size = my_strlen_nbr((*str), base);
     if (size <= 0)
+        my_putstr(SYNTAX_ERROR_MSG);
         exit(84);
     nbr_array = malloc(sizeof(char) * (size + 2));
     for (int i = 0; i < size; i++) {
@@ -89,5 +90,8 @@ char *parenthesis(char **str, char *base, char *op)
 
 char *eval_expr(char *str, char *base, char *op)
 {
+    check_ops(op);
+    check_base(base, op);
+    check_parenthesis(str, op);
     return summands(&str, base, op);
 }
