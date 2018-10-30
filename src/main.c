@@ -10,9 +10,7 @@
 #include <string.h>
 #include "bistromatic.h"
 #include "my.h"
-
-void  my_putstr(char const *);
-int   my_strlen(char const *);
+#include "prototypes.h"
 
 static char  *get_expr(unsigned int size)
 {
@@ -45,9 +43,17 @@ static void check_ops(char const *ops)
 
 static void check_base(char const *b)
 {
+    int i = 0;
+
     if (my_strlen(b) < 2) {
         my_putstr(SYNTAX_ERROR_MSG);
         exit(84);
+    }
+    while (b[i]) {
+        if (b[i] == '+' || b[i] == '-' || b[i] == '/' || b[i] == '*' ||
+        b[i] == '%')
+            exit(84);
+        i = i + 1;
     }
 }
 
