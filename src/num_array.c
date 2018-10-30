@@ -19,7 +19,7 @@ char *number_str_to_array(char *str, char *base, char *op)
         if (*str == op[OP_SUB])
             neg *= -1;
     size = my_strlen_nbr(str, base);
-    nbr_array = malloc(sizeof(char) * (size + 2))
+    nbr_array = malloc(sizeof(char) * (size + 2));
     for (int i = 0; i < size; i++) {
         nbr_array[size - i - 1] = neg * base_to_number(str[i], base);
     }

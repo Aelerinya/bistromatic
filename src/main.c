@@ -8,11 +8,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include "bistromatic.h"
-#include "my.h"
-
-void  my_putstr(char const *);
-int   my_strlen(char const *);
+#include "../include/bistromatic.h"
+#include "../lib/my/my.h"
+#include "../include/prototypes.h"
 
 static char  *get_expr(unsigned int size)
 {

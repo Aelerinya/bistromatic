@@ -9,7 +9,8 @@ SRC = 	src/base.c \
 	src/num_array.c \
 	src/infin_add.c \
 	src/infin_mul.c \
-	src/infin_compare.c
+	src/infin_compare.c	\
+	src/main.c
 TEST = 	tests/test_base.c \
 	tests/test_num_array.c \
 	tests/test_num_array2.c \
