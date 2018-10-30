@@ -5,8 +5,8 @@
 ** Function that divide a number array by another in the given base
 */
 
-#include "../lib/my/my.h"
-#include "../include/prototypes.h"
+#include "my.h"
+#include "prototypes.h"
 #include <stdlib.h>
 
 char *infin_div(char *nb1, char *nb2, char *base)

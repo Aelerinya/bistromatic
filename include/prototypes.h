@@ -8,6 +8,9 @@
 #define MAX(v1, v2) (((v1) > (v2)) ? (v1) : (v2))
 #define ABS(v) (((v) > 0) ? (v) : -1 * (v))
 
+extern char const *SYNTAX_ERROR_MSG;
+extern char const *ERROR_MSG;
+
 enum {OP_OPENP, OP_CLOSEP, OP_ADD, OP_SUB,
 OP_MUL, OP_DIV, OP_MOD};
 

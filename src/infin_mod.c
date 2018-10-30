@@ -5,7 +5,7 @@
 ** Modulo of number arrays
 */
 
-#include "../include/prototypes.h"
+#include "prototypes.h"
 
 char *infin_mod(char *nb1, char *nb2, char *base)
 {

@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "prototypes.h"
+#include "my.h"
 
 void disp_usage(void)
 {

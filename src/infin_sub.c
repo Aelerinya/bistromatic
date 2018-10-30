@@ -5,7 +5,7 @@
 ** Substract two number arrays
 */
 
-#include "../include/prototypes.h"
+#include "prototypes.h"
 #include <stdlib.h>
 
 char *infin_sub(char *nb1, char *nb2, char *base)

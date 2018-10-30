@@ -5,8 +5,8 @@
 ** Utilities to manipulate bases and convert to and from number arrays
 */
 
-#include "../lib/my/my.h"
-#include "../include/prototypes.h"
+#include "my.h"
+#include "prototypes.h"
 #include <stdlib.h>
 
 char *number_str_to_array(char *str, char *base, char *op)
