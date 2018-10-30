@@ -27,6 +27,7 @@ TEST = 	tests/test_base.c \
 	tests/test_infin_compare.c \
 	tests/test_errors.c \
 	tests/test_errors2.c \
+	tests/test_eval_expr.c \
 	tests/test.c
 TEST_OBJ = $(notdir $(SRC:.c=.o)) $(notdir $(TEST:.c=.o))
 
