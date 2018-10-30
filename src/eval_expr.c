@@ -92,6 +92,8 @@ char *parenthesis(char **str, char *base, char *op)
 char *eval_expr(char *str, char *base, char *op)
 {
     check_ops(op);
+    check_duplicate(op);
+    check_duplicate(base);
     check_base(base, op);
     check_parenthesis(str, op);
     return summands(&str, base, op);
