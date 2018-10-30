@@ -29,7 +29,7 @@ char *my_strtol(char **str, char *base, char *op)
     }
     nbr_array[size] = (size) ? -128 : 0;
     nbr_array[size + 1] = -128;
-    return nbr_array;
+    return (nbr_array);
 }
 
 char *summands(char **str, char *base, char *op)
@@ -42,8 +42,7 @@ char *summands(char **str, char *base, char *op)
         return (sum);
     if (**str == op[OP_ADD] || **str == op[OP_SUB])
         return infin_add(sum, summands(str, base, op), base);
-    my_putchar(**str);
-    write(2, "Invalid operator\n", 17);
+    write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
     exit(84);
 }
 
@@ -85,7 +84,7 @@ char *parenthesis(char **str, char *base, char *op)
     } else {
         result = my_strtol(str, base, op);
     }
-    return result;
+    return (result);
 }
 
 char *eval_expr(char *str, char *base, char *op)
