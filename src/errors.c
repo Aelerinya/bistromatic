@@ -19,7 +19,7 @@ void disp_usage(void)
     exit(84);
 }
 
-void check_parenthesis(char *str, char *operators)
+int check_parenthesis(char *str, char *operators)
 {
     int p = 0;
 
@@ -33,17 +33,19 @@ void check_parenthesis(char *str, char *operators)
         write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
         exit(84);
     }
+    return (0);
 }
 
-void check_ops(char *ops)
+int check_ops(char *ops)
 {
     if (my_strlen(ops) != 7) {
         write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
         exit(84);
     }
+    return (0);
 }
 
-void check_base(char *b, char *ops)
+int check_base(char *b, char *ops)
 {
     int i = 0;
     int j = 0;
@@ -63,9 +65,10 @@ void check_base(char *b, char *ops)
         i = i + 1;
         j = 0;
     }
+    return (0);
 }
 
-void check_duplicate(char *b)
+int check_duplicate(char *b)
 {
     int i = 0;
     int j = 1;
@@ -81,4 +84,5 @@ void check_duplicate(char *b)
         i = i + 1;
         j = i + 1;
     }
+    return (0);
 }
