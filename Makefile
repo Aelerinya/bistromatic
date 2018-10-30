@@ -9,8 +9,13 @@ SRC = 	src/base.c \
 	src/num_array.c \
 	src/infin_add.c \
 	src/infin_mul.c \
-	src/infin_compare.c	\
-	src/main.c
+	src/infin_sub.c \
+	src/infin_div.c \
+	src/infin_mod.c \
+	src/infin_compare.c \
+	src/eval_expr.c \
+	src/errors.c
+MAIN =	src/main.c
 TEST = 	tests/test_base.c \
 	tests/test_num_array.c \
 	tests/test_num_array2.c \
@@ -19,7 +24,7 @@ TEST = 	tests/test_base.c \
 	tests/test_infin_compare.c
 TEST_OBJ = $(notdir $(SRC:.c=.o)) $(notdir $(TEST:.c=.o))
 
-OBJ = $(notdir $(SRC:.c=.o))
+OBJ = $(notdir $(SRC:.c=.o)) $(notdir $(MAIN:.c=.o))
 
 NAME = calc
 
@@ -27,29 +32,30 @@ LIB_PATH = ./lib/my/
 LIB = my
 INCLUDE_PATH = ./include/
 
-all: lib
-	gcc -c $(SRC)
-	gcc -Wall -Werror -Wextra --pedantic -o $(NAME) $(OBJ) -L$(LIB_PATH) -l$(LIB)
+all: lib $(OBJ)
+	gcc -Wall -Wextra --pedantic -o $(NAME) $(OBJ) -L$(LIB_PATH) -l$(LIB)
 
 lib:
-	@$(MAKE) -s -C $(LIB_PATH) clean
+	@$(MAKE) -s -C $(LIB_PATH)
+
+$(OBJ):
+	gcc -c $(SRC) $(MAIN) -I$(INCLUDE_PATH)
 
 tests_run: lib $(TEST_OBJ)
+	@gcc -c $(SRC) $(TEST) --coverage -I$(INCLUDE_PATH)
 	@gcc -o test $(TEST_OBJ) -lcriterion --coverage -L$(LIB_PATH) -l$(LIB)
 	@./test
 	@rm -f test $(TEST_OBJ)
 	@$(MAKE) -s -C $(LIB_PATH) fclean
 
-$(TEST_OBJ):
-	@gcc -c $(SRC) $(TEST) --coverage -I$(INCLUDE_PATH)
-
 clean:
-	rm -f $(LIB_PATH)$(OBJ)	
-	rm -f $(OBJ) $(TEST_OBJ)
+	@$(MAKE) -s -C $(LIB_PATH) clean
+	rm -f $(OBJ)
 
 fclean: clean
+	@$(MAKE) -s -C $(LIB_PATH) fclean
 	rm -f $(NAME)
 
-re: fclean re
+re: fclean all
 
 .PHONY: all lib clean fclean re tests_run
