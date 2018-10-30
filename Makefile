@@ -20,7 +20,10 @@ TEST = 	tests/test_base.c \
 	tests/test_num_array.c \
 	tests/test_num_array2.c \
 	tests/test_infin_add.c \
+	tests/test_infin_sub.c \
 	tests/test_infin_mul.c \
+	tests/test_infin_div.c \
+	tests/test_infin_mod.c \
 	tests/test_infin_compare.c \
 	tests/test.c
 TEST_OBJ = $(notdir $(SRC:.c=.o)) $(notdir $(TEST:.c=.o))
