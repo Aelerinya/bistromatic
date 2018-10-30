@@ -54,7 +54,7 @@ Test(infin_div, zero, .init = redirect_all_std_div, .exit_code = 84)
 {
     char *nb1 = number_str_to_array("0", "0123456789", "()+-*/%");
     char *nb2 = number_str_to_array("0", "0123456789", "()+-*/%");
-    char *result = infin_div(nb1, nb2, "0123456789");
+    infin_div(nb1, nb2, "0123456789");
 
     fflush(stderr);
     cr_assert_stderr_eq_str(SYNTAX_ERROR_MSG);
