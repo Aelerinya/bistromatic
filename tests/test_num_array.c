@@ -20,18 +20,13 @@ Test(number_str_to_array, normal)
 {
     char theory[8] = {10, 0, 7, 15, 14, 1, 11, -128};
     char *r = number_str_to_array("--+B1EF70A", "0123456789ABCDEF", "()+-*/%");
+    char theory2[2] = {0, -128};
+    char *result2 = number_str_to_array("", "0123456789ABCDEF", "()+-*/%");
 
     for (int i = 0; i < 8; i++)
         cr_assert_eq(theory[i], r[i]);
-}
-
-Test(number_str_to_array, empty)
-{
-    char theory[2] = {0, -128};
-    char *result = number_str_to_array("", "0123456789ABCDEF", "()+-*/%");
-
-    for (int i = 0; i < 2; i++)
-        cr_assert_eq(theory[i], result[i]);
+    for (int j = 0; j < 2; j++)
+        cr_assert_eq(theory2[j], result2[j]);
 }
 
 Test(print_number_array, negative, .init = redirect_all_std)

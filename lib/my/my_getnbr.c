@@ -7,7 +7,7 @@
 
 int process_digit(int nbr, char c, int *neg, int *overflow)
 {
-    int digit  = c - 48;
+    int digit = c - 48;
 
     if (digit >= 0 && digit <= 9) {
         if (nbr > 214748364 || (nbr == 214748364 && (digit > 7 + *neg % 2))) {

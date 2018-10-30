@@ -51,6 +51,6 @@ Test(infin_compare, nb2_longer)
     char nb1[2] = {-17, -128};
     char nb2[6] = {7, 5, 8, 4, 6, -128};
     int result = infin_compare(nb1, nb2);
-	
+
     cr_assert_eq(result, -1);
 }

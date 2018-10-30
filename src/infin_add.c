@@ -36,17 +36,13 @@ static char rec_add(char *result, op_t *op)
     }
     if (op->nb1[0] == -128) {
         *result = (op->nb2[0] + op->carry) % op->base;
-        op->carry = (op->nb2[0] + op->carry) / op->base;
-        op->nb2++;
+        op->carry = (op->nb2++[0] + op->carry) / op->base;
     } else if (op->nb2[0] == -128) {
         *result = (op->nb1[0] + op->carry) % op->base;
-        op->carry = (op->nb1[0] + op->carry) / op->base;
-        op->nb1++;
+        op->carry = (op->nb1++[0] + op->carry) / op->base;
     } else {
         *result = (op->nb1[0] + op->nb2[0] + op->carry) % op->base;
-        op->carry = (op->nb1[0] + op->nb2[0] + op->carry) / op->base;
-        op->nb1++;
-        op->nb2++;
+        op->carry = (op->nb1++[0] + op->nb2++[0] + op->carry) / op->base;
     }
     rec_add(result + 1, op);
     return (0);

@@ -12,23 +12,22 @@
 char *infin_div(char *nb1, char *nb2, char *base)
 {
     char *result;
-    int size = na_size(nb1) + 1;
     char neg1 = remove_negatives(nb1);
     char neg2 = remove_negatives(nb2);
     int start = find_starting_index(nb1, nb2);
 
-    result = malloc(sizeof(char) * size);
-    for (int i = 0; i < size; i++)
+    result = malloc(sizeof(char) * na_size(nb1) + 1);
+    for (int i = 0; i < na_size(nb1) + 1; i++)
         result[i] = 0;
     for (int j = start; j >= 0; j--) {
         divide_pos(result + start - j, nb1 + j, nb2, base);
         remove_trailing_zeros(nb1);
     }
-    result[size - 1] = -128;
+    result[na_size(nb1)] = -128;
     for (int k = 0; result[k] != -128; k++)
         result[k] *= neg1 * neg2;
-    for (int l = 0; nb1[l] != -128 && neg1 == -1; l++)
-        nb1[l] *= neg1;
+    for (int m = 0; nb1[m] != -128 && neg1 == -1; m++)
+        nb1[m] *= neg1;
     remove_trailing_zeros(result);
     reverse_number_array(result);
     return (result);
