@@ -68,13 +68,13 @@ void check_base(char *b, char *ops)
     }
     while (b[i]) {
         while (ops[j]) {
-        if (b[i] == ops[j]) {
-            write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
-            exit(84);
-        }
+            if (b[i] == ops[j]) {
+                write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
+                exit(84);
+            }
         j = j + 1;
         }
-    i = i + 1;
-    j = 0;
+        i = i + 1;
+        j = 0;
     }
 }
