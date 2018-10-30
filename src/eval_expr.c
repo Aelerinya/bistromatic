@@ -20,9 +20,10 @@ char *my_strtol(char **str, char *base, char *op)
         if (**str == op[OP_SUB])
             neg *= -1;
     size = my_strlen_nbr((*str), base);
-    if (size <= 0)
-        my_putstr(SYNTAX_ERROR_MSG);
+    if (size <= 0) {
+        write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
         exit(84);
+    }
     nbr_array = malloc(sizeof(char) * (size + 2));
     for (int i = 0; i < size; i++) {
         nbr_array[size - i - 1] = neg * base_to_number(**str, base);

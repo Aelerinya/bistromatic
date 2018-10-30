@@ -30,7 +30,7 @@ void check_parenthesis(char *str, char *operators)
             p--;
     }
     if (p != 0) {
-        my_putstr(SYNTAX_ERROR_MSG);
+        write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
         exit(84);
     }
 }
@@ -43,7 +43,7 @@ void check_ops(char *ops)
     while (ops[i]) {
         while (ops[j]) {
             if (ops[i] == ops[j]) {
-                my_putstr(SYNTAX_ERROR_MSG);
+                write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
                 exit(84);
             }
             j = j + 1;
@@ -52,7 +52,7 @@ void check_ops(char *ops)
         j = i + 1;
     }
     if (my_strlen(ops) != 7) {
-        my_putstr(SYNTAX_ERROR_MSG);
+        write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
         exit(84);
     }
 }
@@ -63,13 +63,13 @@ void check_base(char *b, char *ops)
     int j = 0;
 
     if (my_strlen(b) < 2) {
-        my_putstr(SYNTAX_ERROR_MSG);
+        write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
         exit(84);
     }
     while (b[i]) {
         while (ops[j]) {
         if (b[i] == ops[j]) {
-            my_putstr(SYNTAX_ERROR_MSG);
+            write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
             exit(84);
         }
         j = j + 1;
