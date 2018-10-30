@@ -40,4 +40,4 @@ void disp_usage(void);
 void check_parenthesis(char *str, char *operators);
 void check_ops(char *ops);
 void check_base(char *b, char *ops);
-
+void check_duplicate(char *b);
