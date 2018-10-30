@@ -43,7 +43,6 @@ void print_number_array(char *nbr_array, char *base, char *op)
         digit = number_to_base(neg * nbr_array[i], base);
         my_putchar(digit);
     }
-    my_putchar('\n');
 }
 
 int my_strlen_nbr(char *str, char *base)
