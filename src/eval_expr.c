@@ -29,7 +29,7 @@ char *my_strtol(char **str, char *base, char *op)
         nbr_array[size - i - 1] = neg * base_to_number(**str, base);
         (*str)++;
     }
-    nbr_array[size] = (size) ? -128 : 0;
+    nbr_array[size] = -128;
     nbr_array[size + 1] = -128;
     return (nbr_array);
 }
