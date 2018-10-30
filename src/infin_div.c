@@ -17,8 +17,7 @@ char *infin_div(char *nb1, char *nb2, char *base)
     char neg2 = remove_negatives(nb2);
     int start = find_starting_index(nb1, nb2);
 
-    if (!(result = malloc(sizeof(char) * size)))
-        exit(84);
+    result = malloc(sizeof(char) * size)
     for (int i = 0; i < size; i++)
         result[i] = 0;
     for (int j = start; j >= 0; j--) {

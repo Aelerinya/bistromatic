@@ -16,16 +16,15 @@ static void manage_carry(char *result, int base);
 
 char *infin_add(char *nb1, char *nb2, char *base)
 {
-    char *result;
+    char *res;
     op_t op = {nb1, nb2, 0, my_strlen(base)};
 
-    if (!(result = malloc(sizeof(char) * (MAX(na_size(nb1), na_size(nb2)) + 2))))
-        exit(84);
-    rec_add(result, &op);
-    remove_trailing_zeros(result);
-    manage_carry(result, my_strlen(base));
-    remove_trailing_zeros(result);
-    return (result);
+    res = malloc(sizeof(char) * (MAX(na_size(nb1), na_size(nb2)) + 2))
+    rec_add(res, &op);
+    remove_trailing_zeros(res);
+    manage_carry(res, my_strlen(base));
+    remove_trailing_zeros(res);
+    return (res);
 }
 
 static char rec_add(char *result, op_t *op)
