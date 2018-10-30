@@ -21,7 +21,8 @@ TEST = 	tests/test_base.c \
 	tests/test_num_array2.c \
 	tests/test_infin_add.c \
 	tests/test_infin_mul.c \
-	tests/test_infin_compare.c
+	tests/test_infin_compare.c \
+	tests/test.c
 TEST_OBJ = $(notdir $(SRC:.c=.o)) $(notdir $(TEST:.c=.o))
 
 OBJ = $(notdir $(SRC:.c=.o)) $(notdir $(MAIN:.c=.o))
@@ -41,7 +42,7 @@ lib:
 $(OBJ):
 	gcc -c $(SRC) $(MAIN) -I$(INCLUDE_PATH)
 
-tests_run: lib $(TEST_OBJ)
+tests_run: lib
 	@gcc -c $(SRC) $(TEST) --coverage -I$(INCLUDE_PATH)
 	@gcc -o test $(TEST_OBJ) -lcriterion --coverage -L$(LIB_PATH) -l$(LIB)
 	@./test
