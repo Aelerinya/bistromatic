@@ -51,21 +51,24 @@ void check_ops(char *ops)
         my_putstr(SYNTAX_ERROR_MSG);
         exit(84);
     }
-
 }
 
-void check_base(char *b)
+void check_base(char *b, char *ops)
 {
     int i = 0;
+    int j = 0;
 
     if (my_strlen(b) < 2) {
         my_putstr(SYNTAX_ERROR_MSG);
         exit(84);
     }
     while (b[i]) {
-        if (b[i] == '+' || b[i] == '-' || b[i] == '/' || b[i] == '*' 
-        || b[i] == '%')
+        while (b[j]) {
+        if (b[i] = ops[j])
             exit(84);
+        j = j + 1;
+        }
     i = i + 1;
+    j = 0;
     }
 }
