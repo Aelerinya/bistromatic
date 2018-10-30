@@ -31,3 +31,40 @@ void check_parenthesis(char *str, char *operators)
     if (p != 0)
         exit(84);
 }
+
+void check_ops(char *ops)
+{
+    int i = 0;
+    int j = 0;
+
+    while (ops[i]) {
+        while (ops[j]) {
+            if (ops[i] == ops[j])
+                exit(84);
+            j = j + 1;
+        }
+        i = i + 1;
+        j = i + 1;
+    }
+    if (my_strlen(ops) != 7) {
+        my_putstr(SYNTAX_ERROR_MSG);
+        exit(84);
+    }
+
+}
+
+void check_base(char *b)
+{
+    int i = 0;
+
+    if (my_strlen(b) < 2) {
+        my_putstr(SYNTAX_ERROR_MSG);
+        exit(84);
+    }
+    while (b[i]) {
+        if (b[i] == '+' || b[i] == '-' || b[i] == '/' || b[i] == '*' 
+        || b[i] == '%')
+            exit(84);
+    i = i + 1;
+    }
+}
