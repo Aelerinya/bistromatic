@@ -8,6 +8,7 @@
 #include "my.h"
 #include "prototypes.h"
 #include <stdlib.h>
+#include <unistd.h>
 
 char *infin_div(char *nb1, char *nb2, char *base)
 {
@@ -19,11 +20,11 @@ char *infin_div(char *nb1, char *nb2, char *base)
     result = malloc(sizeof(char) * na_size(nb1) + 1);
     for (int i = 0; i < na_size(nb1) + 1; i++)
         result[i] = 0;
+    result[na_size(nb1)] = -128;
     for (int j = start; j >= 0; j--) {
         divide_pos(result + start - j, nb1 + j, nb2, base);
         remove_trailing_zeros(nb1);
     }
-    result[na_size(nb1)] = -128;
     for (int k = 0; result[k] != -128; k++)
         result[k] *= neg1 * neg2;
     for (int m = 0; nb1[m] != -128 && neg1 == -1; m++)
@@ -53,10 +54,11 @@ int find_starting_index(char *nb1, char *nb2)
     char *copy;
     int start = 0;
 
-    if (nb2[0] == 0 && nb2[1] == -128)
+    if (nb2[0] == 0 && nb2[1] == -128) {
+        write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
         exit(84);
-    if (!(copy = malloc(sizeof(char) * (MAX(na_size(nb1), na_size(nb2)) + 1))))
-        exit(84);
+    }
+    copy = malloc(sizeof(char) * (MAX(na_size(nb1), na_size(nb2)) + 1));
     for (int i = 0; i <= na_size(nb2); i++)
         copy[i] = nb2[i];
     for (start = 0; infin_compare(nb1 + start, copy) != -1; start++);

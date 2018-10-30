@@ -19,10 +19,7 @@ char *get_expression(int size)
         write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
         exit(84);
     }
-    if (!(expression = malloc(sizeof(char) * (size + 1)))) {
-        write(2, ERROR_MSG, my_strlen(ERROR_MSG));
-        exit(84);
-    }
+    expression = malloc(sizeof(char) * (size + 1));
     if (read(0, expression, size) != size) {
         write(2, ERROR_MSG, my_strlen(ERROR_MSG));
         exit(84);
