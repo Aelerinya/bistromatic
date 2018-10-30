@@ -5,7 +5,7 @@
 ** Compares two integers of arbitrary size in number arrays
 */
 
-#include "prototypes.h"
+#include "../include/prototypes.h"
 
 static int verify_sign(char *nb)
 {

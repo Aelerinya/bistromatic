@@ -5,8 +5,8 @@
 ** Fork from the CPool project eval_expr : adaptation to number arrays.
 */
 
-#include "my.h"
-#include "prototypes.h"
+#include "../lib/my/my.h"
+#include "../include/prototypes.h"
 #include <stdlib.h>
 #include <unistd.h>
 

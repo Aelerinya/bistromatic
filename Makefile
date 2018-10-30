@@ -18,15 +18,20 @@ TEST = 	tests/test_base.c \
 	tests/test_infin_compare.c
 TEST_OBJ = $(notdir $(SRC:.c=.o)) $(notdir $(TEST:.c=.o))
 
+OBJ = $(notdir $(SRC:.c=.o))
+
+NAME = calc
+
 LIB_PATH = ./lib/my/
 LIB = my
 INCLUDE_PATH = ./include/
 
-all:
-	@echo "Not implemented."
+all: lib
+	gcc -c $(SRC)
+	gcc -Wall -Werror -Wextra --pedantic -o $(NAME) $(OBJ) -L$(LIB_PATH) -l$(LIB)
 
 lib:
-	@$(MAKE) -s -C $(LIB_PATH)
+	@$(MAKE) -s -C $(LIB_PATH) clean
 
 tests_run: lib $(TEST_OBJ)
 	@gcc -o test $(TEST_OBJ) -lcriterion --coverage -L$(LIB_PATH) -l$(LIB)
@@ -38,12 +43,12 @@ $(TEST_OBJ):
 	@gcc -c $(SRC) $(TEST) --coverage -I$(INCLUDE_PATH)
 
 clean:
-	@echo "Not implemented."
+	rm -f $(LIB_PATH)$(OBJ)	
+	rm -f $(OBJ) $(TEST_OBJ)
 
-fclean:
-	@echo "Not implemented."
+fclean: clean
+	rm -f $(NAME)
 
-re:
-	@echo "Not implemented."
+re: fclean re
 
 .PHONY: all lib clean fclean re tests_run

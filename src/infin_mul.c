@@ -7,9 +7,9 @@
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "prototypes.h"
-#include "my.h"
-#include "mul.h"
+#include "../include/prototypes.h"
+#include "../lib/my/my.h"
+#include "../include/mul.h"
 
 static char rec_mul(char *result, op_m_t *op)
 {

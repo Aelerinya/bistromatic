@@ -5,7 +5,7 @@
 ** Functions to manipulate bases
 */
 
-#include "my.h"
+#include "../lib/my/my.h"
 
 char base_to_number(char digit, char *base)
 {

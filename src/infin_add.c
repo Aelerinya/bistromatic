@@ -7,9 +7,9 @@
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "my.h"
-#include "add.h"
-#include "prototypes.h"
+#include "../lib/my/my.h"
+#include "../include/add.h"
+#include "../include/prototypes.h"
 
 static char rec_add(char *result, op_t *op);
 static void manage_carry(char *result, int base);
