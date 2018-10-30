@@ -5,8 +5,5 @@
 ** Header for the bistromatic with error codes, operation codes and prototypes
 */
 
-char const *SYNTAX_ERROR_MSG = "syntax error";
-char const *ERROR_MSG = "error";
-
-char *eval_expr(char const *base, char const *ops,
-char const *expr, unsigned int size);
+char const *SYNTAX_ERROR_MSG = "syntax error\n";
+char const *ERROR_MSG = "error\n";
