@@ -31,33 +31,6 @@ char *get_expression(int size)
     return expression;
 }
 
-void check_digits(char *b, char *op, char *str)
-{
-    int i = 0;
-    int j = 0;
-    int k = 0;
-
-    while (str[i]) {
-        while (b[j]) {
-            if (b[j] != str[i]) {
-                write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
-                exit(84);
-            }
-            j = j + 1;
-        }
-        while (op[k]) {
-            if (op[k] != str[i]) {
-                write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
-                exit(84);
-            }
-            k = k + 1;
-        }
-        j = 0;
-        k = 0;
-        i = i + 1;
-    }
-}
-
 int main(int ac, char **av)
 {
     int size;

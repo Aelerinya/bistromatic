@@ -37,20 +37,6 @@ void check_parenthesis(char *str, char *operators)
 
 void check_ops(char *ops)
 {
-    int i = 0;
-    int j = 1;
-
-    while (ops[i]) {
-        while (ops[j]) {
-            if (ops[i] == ops[j]) {
-                write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
-                exit(84);
-            }
-            j = j + 1;
-        }
-        i = i + 1;
-        j = i + 1;
-    }
     if (my_strlen(ops) != 7) {
         write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
         exit(84);
