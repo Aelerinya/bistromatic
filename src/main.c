@@ -25,7 +25,7 @@ unsigned long my_atoul(char *str)
 char *get_expression(unsigned long size)
 {
     char *expression;
-    
+
     if (size <= 0) {
         write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
         exit(84);
@@ -43,11 +43,15 @@ int main(int ac, char **av)
 {
     unsigned long size;
     char *expression;
-    
+    char *result;
+
     if (ac != 4 || my_strcmp(av[1], "-h") == 0)
         disp_usage();
     size = my_atoul(av[3]);
     expression = get_expression(size);
-    print_number_array(eval_expr(expression, av[1], av[2]), av[1], av[2]);
+    result = eval_expr(expression, av[1], av[2]);
+    print_number_array(result, av[1], av[2]);
+    free(expression);
+    free(result);
     return (0);
 }

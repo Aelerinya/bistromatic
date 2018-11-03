@@ -10,4 +10,3 @@ char const *ERROR_MSG = "error";
 
 char *eval_expr(char *str, char *base, char *op);
 void disp_usage(void);
-

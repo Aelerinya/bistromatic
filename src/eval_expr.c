@@ -37,13 +37,20 @@ char *my_strtol(char **str, char *base, char *op)
 char *summands(char **str, char *base, char *op)
 {
     char *sum = parenthesis(str, base, op);
+    char *result;
+    char *next;
 
     if (**str == op[OP_MUL] || **str == op[OP_DIV] || **str == op[OP_MOD])
         sum = factors(str, sum, base, op);
     if (**str == '\0' || **str == op[OP_CLOSEP])
         return (sum);
-    if (**str == op[OP_ADD] || **str == op[OP_SUB])
-        return infin_add(sum, summands(str, base, op), base);
+    if (**str == op[OP_ADD] || **str == op[OP_SUB]) {
+        next = summands(str, base, op);
+        result = infin_add(sum, next, base);
+        free(sum);
+        free(next);
+        return (result);
+    }
     write(2, SYNTAX_ERROR_MSG, my_strlen(SYNTAX_ERROR_MSG));
     exit(84);
 }
@@ -63,6 +70,8 @@ char *factors(char **str, char *fac, char *base, char *op)
             result = infin_div(fac, next, base);
         if (tmp == op[OP_MOD])
             result = infin_mod(fac, next, base);
+        free(fac);
+        free(next);
         tmp = **str;
         fac = result;
     }
