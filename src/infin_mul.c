@@ -30,13 +30,13 @@ static char rec_mul(char *result, op_m_t *op)
 char *infin_mul(char *nb1, char *nb2, char *base)
 {
     op_m_t op = {0, nb2, 0, my_strlen(base)};
-    int size = na_size(nb1) + na_size(nb2);
+    unsigned long size = na_size(nb1) + na_size(nb2);
     char *result;
 
     result = malloc(sizeof(char) * (size + 4));
-    for (int i = 0; i < size + 4; i++)
+    for (unsigned long i = 0; i < size + 4; i++)
         result[i] = 0;
-    for (int j = 0; nb1[j] != -128; j++) {
+    for (unsigned long j = 0; nb1[j] != -128; j++) {
         op.mul = nb1[j];
         op.nb = nb2;
         rec_mul(result + j, &op);

@@ -14,7 +14,7 @@ char *my_strtol(char **str, char *base, char *op)
 {
     char neg = 1;
     char *nbr_array;
-    int size;
+    unsigned long size;
 
     for (neg = 1; **str == op[OP_SUB] || **str == op[OP_ADD]; (*str)++)
         if (**str == op[OP_SUB])
@@ -25,7 +25,7 @@ char *my_strtol(char **str, char *base, char *op)
         exit(84);
     }
     nbr_array = malloc(sizeof(char) * (size + 2));
-    for (int i = 0; i < size; i++) {
+    for (unsigned long i = 0; i < size; i++) {
         nbr_array[size - i - 1] = neg * base_to_number(**str, base);
         (*str)++;
     }
@@ -80,7 +80,7 @@ char *parenthesis(char **str, char *base, char *op)
         (*str)++;
         result = summands(str, base, op);
         if (neg == -1)
-            for (int i = 0; result[i] != -128; i++)
+            for (unsigned long i = 0; result[i] != -128; i++)
                 result[i] *= -1;
         (*str)++;
     } else {

@@ -52,9 +52,9 @@ static void manage_carry(char *result, int base)
 {
     int negative = 0;
 
-    for (int j = 0; result[j] != -128; j++)
+    for (unsigned long j = 0; result[j] != -128; j++)
         negative = (result[j] < 0) ? 1 : 0;
-    for (int i = 0; result[i] != -128; i++) {
+    for (unsigned long i = 0; result[i] != -128; i++) {
         if (result[i] < 0 && !negative) {
             result[i] += base;
             result[i + 1]--;

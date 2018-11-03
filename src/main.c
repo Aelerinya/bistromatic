@@ -11,7 +11,18 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-char *get_expression(int size)
+unsigned long my_atoul(char *str)
+{
+    unsigned long number = 0;
+
+    for (int i = 0; str[i] >= '0' && str[i] <= '9'; i++) {
+        number *= 10;
+        number += str[i] - 48;
+    }
+    return number;
+}
+
+char *get_expression(unsigned long size)
 {
     char *expression;
     
@@ -30,12 +41,12 @@ char *get_expression(int size)
 
 int main(int ac, char **av)
 {
-    int size;
+    unsigned long size;
     char *expression;
     
     if (ac != 4 || my_strcmp(av[1], "-h") == 0)
         disp_usage();
-    size = my_getnbr(av[3]);
+    size = my_atoul(av[3]);
     expression = get_expression(size);
     print_number_array(eval_expr(expression, av[1], av[2]), av[1], av[2]);
     return (0);
