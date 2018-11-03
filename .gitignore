@@ -8,5 +8,4 @@ vgcore.*
 lib/libmy.a
 include/my.h
 lib/my/libmy.a
-test.c
 calc
